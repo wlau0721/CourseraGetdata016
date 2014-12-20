@@ -1,12 +1,33 @@
-Raw data is: name of dog, address of owner, time walked, date walked, size of dog (small, medium, or large), health of dog (well or sick) on that date and time, comments, and pay.
+Raw data is: Human Activity Recognition Using Smartphones Dataset Version 1.0, which is available here - 
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones  The explanation of features in the original dataset is at the file features.txt and features_info.txt. 
 
-The business wants to assign ID# to the dogs, and codewords to the address to make this data anonymous. There isn't anything to do to the comments--since free text is all over the place.
+
+The goal for this work is to create a tidy dataset from the raw dataset described above.
 
 Codebook:
-The dog's name was transformed into an IDNumber (unique) (1-50),
-the address was transformed into a factor, OwnerName (levels Alice, Bob, Charlie, Deborah, Ernest and Fred),
-time and date walked were counted to make WalksPerWeek1, WalksPerWeek2, and WalksPerWeek3. Week1 begins at 00:01UTC on July1, 2014, Week2 begins at 00:01UTC on July8, 2014, Week3 begins at 00:01UTC on July15, 2014.
-Health was summarized as HealthWeek1, HealthWeek2, and HealthWeek3. It is a factor with two levels, Well and Sick. If the dog was sick at any walk during that week, dog was marked sick, else dog was marked well.
-Comments are dropped.
-Pay is transformed into PayWeek1, PayWeek2, PayWeek3, which is a factor that has two levels (Yes, and No) for correct pay paid during that week.
-Dog size is a factor with levels Small, Medium and Large
+>>Merges the training and the test sets to create one data set:
+Sensor data, activity and subject are first merged into one data frame for both the training set and the testing set.  
+Then, the training dataset is further merged together into one data frame. 
+
+>>Add original dataset column labels to the data frame
+The data frame currently has no labels.  The feature label comes from the features.txt file in the original data set. 
+Two column names (activity and subjectId) are also added to match with the activity label column as well as the subject column. 
+
+>>Extracts only the measurements on the mean and standard deviation for each measurement
+The tidy dataset doesn't contain all the sensor measurements from the original set.  Only the measurements calculating mean and standard deviation are extracted. 
+The extracted dataset has columns - activity, subjectId, mean measurements, standard deviation measurements.
+Since the original column names are special characters like "(" and ")" which R script is confused with function calls, make.names function is used to filter all the column names. 
+
+>>Uses descriptive activity names to name the activities in the data set
+The original dataset uses numbers to represent activities performed by the subjects.  The activity labels are stored separated on a file named activity_labels.txt.
+To create the tidy dataset, activity numbers in the data frame are replaced with the matching activity label names.
+
+>>create tidy data grouped by activity, subject and both
+Three sets of tidy dataset are created - activity, subject and activity plus subject.
+Activity tidy data frame contains the extracted data frame calculating the average measurements grouped by activity labels.
+Subject tidy data frame contains the extracted data frame calculating the average measurements grouped by subject identifier.
+Activity and Subject tidy data frame contains the extracted data frame calculating the average measurements grouped by activity labels and then subject identifier.
+
+>>write tidy datasets to disk
+The three tidy datasets are written to disk with file names tidyDataActivity.txt, tidyDataSubject.txt and tidyDataActivitySubject.txt respectively.
+

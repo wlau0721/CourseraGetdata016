@@ -20,7 +20,7 @@ test <- cbind(testx,testy,tests)
 ##Merges the training and the test sets to create one data set
 data <- rbind(train,test)
 
-#4. Add original dataset columne labels to the data frame
+#4. Add original dataset column labels to the data frame
 featurelabels <- as.character(flabels[,2])  #assign sensor data feature's labels
 columnlabels <- c(featurelabels,"activity","subjectId") #aggregate activity and subjectid to feature labels
 colnames(data) <- columnlabels #assign column names to data frame
