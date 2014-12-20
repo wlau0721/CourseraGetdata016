@@ -55,6 +55,10 @@ tidyDataActivitySubject$activity <- NULL  #remove duplicated column
 tidyDataActivitySubject$subjectId <- NULL #remove duplicated column
 
 #write tidy dataset to disk
-write.table(tidyDataActivity, file="tidyDataActivity.txt",row.names = FALSE,sep = "\t")
-write.table(tidyDataSubject, file="tidyDataSubject.txt",row.names = FALSE,sep = "\t")
-write.table(tidyDataActivitySubject, file="tidyDataActivitySubject.txt",row.names = FALSE,sep = "\t")
+tidyDataActivity <- format(tidyDataActivity, width = 15, justify = "left")
+tidyDataSubject <- format(tidyDataSubject, width = 15, justify = "left")
+tidyDataActivitySubject <- format(tidyDataActivitySubject, width = 15, justify = "left")
+write.table(tidyDataActivity, file="tidyDataActivity.txt",quote = FALSE,row.names = FALSE)
+write.table(tidyDataSubject, file="tidyDataSubject.txt",quote = FALSE,row.names = FALSE)
+write.table(tidyDataActivitySubject, file="tidyDataActivitySubject.txt",quote = FALSE,row.names = FALSE)
+
