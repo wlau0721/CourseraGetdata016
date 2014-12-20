@@ -53,3 +53,8 @@ tidyDataSubject$subjectId <- NULL #remove duplicated column
 tidyDataActivitySubject <- aggregate(extractedData,by = list(activitylabel = extractedData$activity,subject = extractedData$subjectId),FUN=mean)
 tidyDataActivitySubject$activity <- NULL  #remove duplicated column
 tidyDataActivitySubject$subjectId <- NULL #remove duplicated column
+
+#write tidy dataset to disk
+write.table(tidyDataActivity, file="tidyDataActivity.txt",row.names = FALSE)
+write.table(tidyDataSubject, file="tidyDataSubject.txt",row.names = FALSE)
+write.table(tidyDataActivitySubject, file="tidyDataActivitySubject.txt",row.names = FALSE)

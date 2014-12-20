@@ -8,10 +8,13 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 Overview
 ========
-There are 3 files in this github repository: 
+The following files are included in the github repository: 
 README.md
 CookBook.txt
 run_analysis.R
+tidyDataActivity.txt
+tidyDataSubject.txt
+tidyDataActivitySubject.txt
 
 README.md
 ========
@@ -25,6 +28,18 @@ run_analysis.R
 ========
 run_analysis.R is the R script processing the Smartphones datasets and creating the tidy datasets.  To run run_analysis.R, the Smartphones datasets need to be stored at a directory named UCI which is in the directory as the run_analysis.R file.
 Please refer to CookBook.txt to find out the details of the tidy dataset. 
+
+tidyDataActivity.txt
+========
+This is the tidy dataset that calculates the average value for different mean and standard deviation sensor measurements group by activity labels
+
+tidyDataSubject.txt
+========
+This the the tidy dataset that calculates the average value for different mean and standard deviation sensor measurements group by subjects
+
+tidyDataActivitySubject.txt
+========
+This the the tidy dataset that calculates the average value for different mean and standard deviation sensor measurements group by activity labels and then subjects
 
 
 License:
